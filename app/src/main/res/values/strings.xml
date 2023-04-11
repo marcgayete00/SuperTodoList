@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="banner">Your TodoList</string>
+    <string name="addTask">Add task</string>
+    <string name="bannerAskTask">Add a new task</string>
+    <string name="saveTask">Save</string>
+    <string name="setDate">Set Date</string>
+    <string name="taskNamePlaceHolder"> Introduce task name </string>
+    <string name="loginBanner">Welcome!</string>
+    <string name="loginUsername">Username... </string>
+    <string name="loginPasswd">Password... </string>
+    <string name="loginMail">E-mail...</string>
+    <string name="bannerRegister">Still dont have an account?</string>
+    <string name="bannerlogin">Already have an account?</string>
+    <string name="bannerRegister2">Register!</string>
+    <string name="loginIntent">Register</string>
+    <string name="submitLogin">Log-in</string>
+    <string name="submitRegister">Submit</string>
+    <string name="registerIntent">Log-in</string>
+    <string name="plus">+</string>
+
+</resources>
