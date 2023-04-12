@@ -1,8 +1,12 @@
 package com.example.newtodolist;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,27 +18,27 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
+
 public class AddTask extends AppCompatActivity {
 
     private TextView banner;
     private EditText taskName;
     private Button setDate;
     private EditText viewDate;
-    private Button addTask;
+    private Button confirmTask;
     Calendar taskDate = Calendar.getInstance();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
-        findViewById(R.id.banner);
-        findViewById(R.id.taskName);
-        findViewById(R.id.viewDate);
-        findViewById(R.id.setDate);
-        findViewById(R.id.addTask);
+        banner = findViewById(R.id.banner);
+        taskName = findViewById(R.id.taskName);
+        viewDate = findViewById(R.id.viewDate);
+        setDate = findViewById(R.id.setDate);
+        confirmTask = findViewById(R.id.confirmtask);
 
         setDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +56,7 @@ public class AddTask extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
                                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                taskDate.set(year, monthOfYear, dayOfMonth);
                                 String formattedDate = sdf.format(taskDate.getTime());
                                 viewDate.setText(formattedDate);
                             }
@@ -60,6 +65,25 @@ public class AddTask extends AppCompatActivity {
             }
         });
 
+        confirmTask.setOnClickListener(v -> {
+            /*
+            // Obtener la instancia de la referencia de la base de datos
+            DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference();
 
+// Crear una nueva entrada en la base de datos con los datos del usuario y la tarea
+            String userId = "usuario1"; // Obtener el ID del usuario
+            String taskName = taskName.getText().toString();
+            String taskDate = viewDate.getText().toString();
+            Todo todo = new Todo(taskName, taskDate);
+            databaseRef.child("users").child(userId).child("todos").push().setValue(todo);
+
+             */
+
+
+            Intent intent = new Intent(this, TodoList.class);
+            startActivity(intent);
+
+
+        });
     }
 }

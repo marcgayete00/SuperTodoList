@@ -26,16 +26,16 @@ public class TodoList extends AppCompatActivity {
         banner = findViewById(R.id.banner);
         addTask = findViewById(R.id.addtask);
 
+        addTask.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AddTask.class);
+            startActivity(intent);
+        });
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<String> data = new ArrayList<>();
         Adapter adapter = new Adapter(data);
         recyclerView.setAdapter(adapter);
-
-        addTask.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AddTask.class);
-            startActivity(intent);
-        });
 
 
     }
